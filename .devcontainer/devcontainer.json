@@ -1,9 +1,9 @@
 {
-	"name": "Python Sample",
+	"name": "Jupyter Starter",
 	"dockerFile": "Dockerfile",
 
 	// Specifies a list of ports that should be published from the container.
-	"appPort": [8888],
+	// "appPort": [8888],
 
 	// Comment out the next line to run as root instead. Linux users, 
 	// update Dockerfile with your user's UID/GID if not 1000.
