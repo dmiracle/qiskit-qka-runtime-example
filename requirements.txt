@@ -1,4 +1,7 @@
 numpy
 scipy
+pandas
 matplotlib
-notebook
+jupyter
+sklearn
+tensorflow
