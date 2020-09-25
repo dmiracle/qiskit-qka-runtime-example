@@ -2,7 +2,15 @@
 
 A starter project for running jupyter notebooks in a conatiner with vscode. Modified from https://github.com/Microsoft/vscode-remote-try-python.
 
-Start a notebook with
+## Serve a Jupyter Notebook
 ```
 jupyter notebook --ip=0.0.0.0 --port=9099 --no-browser
+```
+
+## Start a New Project
+```
+git clone https://github.com/dmiracle/jupyter-starter.git <project-name>
+git remote rm origin
+git remote add origin <project-url>
+git push -u origin master
 ```
