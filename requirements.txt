@@ -1,6 +1,7 @@
 numpy
-scipy
+qiskit
 pandas
 matplotlib
-jupyter
-sklearn
+python-decouple
+ipython
+
