@@ -3,5 +3,5 @@ qiskit
 pandas
 matplotlib
 python-decouple
-ipython
+ipykernel
 
