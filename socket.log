@@ -1,0 +1,92 @@
+------------------------------------------------------------------------------
+qka local
+
+runtime_job._start_websocket_client:WARNING:2021-07-09 16:33:33,923: An error occurred while streaming results from the server for job c3kbnd1kjfmd50ohmc80:
+Traceback (most recent call last):
+  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/qiskit/providers/ibmq/runtime/runtime_job.py", line 289, in _start_websocket_client
+    self._ws_client.job_results()
+  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/qiskit/providers/ibmq/api/clients/runtime_ws.py", line 74, in job_results
+    self.stream(url=url, retries=max_retries, backoff_factor=backoff_factor)
+  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/qiskit/providers/ibmq/api/clients/base.py", line 211, in stream
+    raise WebsocketError(error_message)
+qiskit.providers.ibmq.api.exceptions.WebsocketError: 'Max retries exceeded: Failed to establish a websocket connection. Error: Traceback (most recent call last):\n  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/websocket/_app.py", line 369, in run_forever\n    dispatcher.read(self.sock.sock, read, check)\n  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/websocket/_app.py", line 72, in read\n    if not read_callback():\n  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/websocket/_app.py", line 335, in read\n    op_code, frame = self.sock.recv_data_frame(True)\n  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/websocket/_core.py", line 395, in recv_data_frame\n    frame = self.recv_frame()\n  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/websocket/_core.py", line 434, in recv_frame\n    return self.frame_buffer.recv_frame()\n  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/websocket/_abnf.py", line 339, in recv_frame\n    self.recv_header()\n  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/websocket/_abnf.py", line 295, in recv_header\n    header = self.recv_strict(2)\n  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/websocket/_abnf.py", line 374, in recv_strict\n    bytes_ = self.recv(min(16384, shortage))\n  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/websocket/_core.py", line 518, in _recv\n    return recv(self.sock, bufsize)\n  File "/Users/dylan/repos/qiskit-qka-runtime-example/venv/lib/python3.8/site-packages/websocket/_socket.py", line 127, in recv\n    raise WebSocketConnectionClosedException(\nwebsocket._exceptions.WebSocketConnectionClosedException: Connection to remote host was lost.\n'
+
+
+-----------------------------------------------------------------------------
+qka on sw
+
+Traceback (most recent call last):
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtimes.py", line 108, in __retry_get_status
+    return self.get_status()
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtimes.py", line 98, in get_status
+    job = self.__runtime_client.fetch_job(self._job_id)
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/_runtime_client.py", line 71, in fetch_job
+    raise Exception(response.text)
+Exception
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner_restricted_2.3/6654e9a2-b7af-4607-972c-61f1ef1ca441/main.py", line 114, in <module>
+    result = job.result()
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtimes.py", line 79, in result
+    self.__wait_for_final_state(timeout=timeout, wait=wait)
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtimes.py", line 123, in __wait_for_final_state
+    status = self.__retry_get_status(0)
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtimes.py", line 110, in __retry_get_status
+    Logger.log(f"exception trying to fetch status {e}")
+TypeError: log() missing 2 required positional arguments: 'level' and 'msg'
+runtime_job._start_websocket_client:WARNING:2021-07-10 19:54:41,363: An error occurred while streaming results from the server for job c3kvd9jma37p8k0h1khg:
+Traceback (most recent call last):
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/qiskit/providers/ibmq/runtime/runtime_job.py", line 289, in _start_websocket_client
+    self._ws_client.job_results()
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/qiskit/providers/ibmq/api/clients/runtime_ws.py", line 74, in job_results
+    self.stream(url=url, retries=max_retries, backoff_factor=backoff_factor)
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/qiskit/providers/ibmq/api/clients/base.py", line 211, in stream
+    raise WebsocketError(error_message)
+qiskit.providers.ibmq.api.exceptions.WebsocketError: 'Max retries exceeded: Failed to establish a websocket connection. Error: Traceback (most recent call last):\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_app.py", line 369, in run_forever\n    dispatcher.read(self.sock.sock, read, check)\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_app.py", line 72, in read\n    if not read_callback():\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_app.py", line 335, in read\n    op_code, frame = self.sock.recv_data_frame(True)\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_core.py", line 395, in recv_data_frame\n    frame = self.recv_frame()\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_core.py", line 434, in recv_frame\n    return self.frame_buffer.recv_frame()\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_abnf.py", line 339, in recv_frame\n    self.recv_header()\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_abnf.py", line 295, in recv_header\n    header = self.recv_strict(2)\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_abnf.py", line 374, in recv_strict\n    bytes_ = self.recv(min(16384, shortage))\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_core.py", line 518, in _recv\n    return recv(self.sock, bufsize)\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_socket.py", line 127, in recv\n    raise WebSocketConnectionClosedException(\nwebsocket._exceptions.WebSocketConnectionClosedException: Connection to remote host was lost.\n'
+
+-------------------------------------------------------------
+vqe on sw
+
+Traceback (most recent call last):
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtimes.py", line 108, in __retry_get_status
+    return self.get_status()
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtimes.py", line 98, in get_status
+    job = self.__runtime_client.fetch_job(self._job_id)
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/_runtime_client.py", line 71, in fetch_job
+    raise Exception(response.text)
+Exception
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/qiskit_nature/runtime/vqe_program.py", line 272, in compute_minimum_eigenvalue
+    result = job.result()
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtimes.py", line 79, in result
+    self.__wait_for_final_state(timeout=timeout, wait=wait)
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtimes.py", line 123, in __wait_for_final_state
+    status = self.__retry_get_status(0)
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtimes.py", line 110, in __retry_get_status
+    Logger.log(f"exception trying to fetch status {e}")
+TypeError: log() missing 2 required positional arguments: 'level' and 'msg'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner_restricted_2.3/eade0a78-254a-44a1-b4c0-6e313d26e2b2/vqe.py", line 91, in <module>
+    runtime_result = runtime_vqe.compute_minimum_eigenvalue(hamiltonian)
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/strangeworks/qiskit/runtime_programs/vqe_program.py", line 53, in compute_minimum_eigenvalue
+    res = super().compute_minimum_eigenvalue(operator, aux_operators)
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/qiskit_nature/runtime/vqe_program.py", line 274, in compute_minimum_eigenvalue
+    raise RuntimeError(f"The job {job.job_id()} failed unexpectedly.") from exc
+RuntimeError: The job c3kvd2sn850hs8tm4ot0 failed unexpectedly.
+runtime_job._start_websocket_client:WARNING:2021-07-10 20:03:26,253: An error occurred while streaming results from the server for job c3kvd2sn850hs8tm4ot0:
+Traceback (most recent call last):
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/qiskit/providers/ibmq/runtime/runtime_job.py", line 289, in _start_websocket_client
+    self._ws_client.job_results()
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/qiskit/providers/ibmq/api/clients/runtime_ws.py", line 74, in job_results
+    self.stream(url=url, retries=max_retries, backoff_factor=backoff_factor)
+  File "/home/env/venv_2.3/lib/python3.8/site-packages/qiskit/providers/ibmq/api/clients/base.py", line 211, in stream
+    raise WebsocketError(error_message)
+qiskit.providers.ibmq.api.exceptions.WebsocketError: 'Max retries exceeded: Failed to establish a websocket connection. Error: Traceback (most recent call last):\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_app.py", line 369, in run_forever\n    dispatcher.read(self.sock.sock, read, check)\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_app.py", line 72, in read\n    if not read_callback():\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_app.py", line 335, in read\n    op_code, frame = self.sock.recv_data_frame(True)\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_core.py", line 395, in recv_data_frame\n    frame = self.recv_frame()\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_core.py", line 434, in recv_frame\n    return self.frame_buffer.recv_frame()\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_abnf.py", line 339, in recv_frame\n    self.recv_header()\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_abnf.py", line 295, in recv_header\n    header = self.recv_strict(2)\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_abnf.py", line 374, in recv_strict\n    bytes_ = self.recv(min(16384, shortage))\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_core.py", line 518, in _recv\n    return recv(self.sock, bufsize)\n  File "/home/env/venv_2.3/lib/python3.8/site-packages/websocket/_socket.py", line 127, in recv\n    raise WebSocketConnectionClosedException(\nwebsocket._exceptions.WebSocketConnectionClosedException: Connection to remote host was lost.\n'
